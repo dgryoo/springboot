@@ -14,6 +14,7 @@ public class UserDaoService {
 
     // Database의 유저 수
     private static int usersCount = 3;
+
     // Database라고 가정
     static {
         users.add(new User(1, "Ryoo", new Date()));
@@ -60,4 +61,14 @@ public class UserDaoService {
         return null;
     }
 
+    public User updateById(User user, int id) {
+        User updateUser = findOne(id);
+        if(updateUser != null ) {
+            updateUser.setName(user.getName());
+            return updateUser;
+        }
+
+        return null;
+
+    }
 }

@@ -6,13 +6,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
     private UserDaoService service;
 
     public UserController(UserDaoService service) {
-        this.service  = service;
+        this.service = service;
     }
 
     @GetMapping("/users")
@@ -53,5 +54,15 @@ public class UserController {
         }
     }
 
+    @PutMapping("/users/{id}")
+    public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable int id) {
+        User updateUser =  service.updateById(user, id);
 
+        if (updateUser == null)
+            throw new UserNotFoundException(String.format("ID[%s] not fount", id));
+
+        updateUser.setName(user.getName());
+
+        return ResponseEntity.noContent().build();
+    }
 }
