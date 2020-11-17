@@ -17,9 +17,9 @@ public class UserDaoService {
 
     // Database라고 가정
     static {
-        users.add(new User(1, "Ryoo", new Date()));
-        users.add(new User(2, "Shin", new Date()));
-        users.add(new User(3, "Lim", new Date()));
+        users.add(new User(1, "Ryoo", new Date(), "pass1", "701010-1111111"));
+        users.add(new User(2, "Shin", new Date(), "pass2", "801010-2222222"));
+        users.add(new User(3, "Lim", new Date(), "pass3", "901010-2222222"));
 
     }
 
