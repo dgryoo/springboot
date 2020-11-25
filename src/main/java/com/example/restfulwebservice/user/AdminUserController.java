@@ -3,6 +3,7 @@ package com.example.restfulwebservice.user;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -12,8 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin") // 공통적인 프리픽스
+@Slf4j
 public class AdminUserController {
     private UserDaoService service;
+    private int count =0;
 
     public AdminUserController(UserDaoService service) {
         this.service = service;
@@ -64,6 +67,7 @@ public class AdminUserController {
     @GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv2+json")
     public MappingJacksonValue retrieveUserV2(@PathVariable int id) {
         User user = service.findOne(id);
+        log.error("count: "+count++);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not fount", id));
