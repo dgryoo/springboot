@@ -1,4 +1,4 @@
-@2020.11.25
+-- 2020.11.25 --
 - section4
     - REST API Monitoring을 위한 Actuator 설정
         Actuator 설정 서버의 모니터링 도구로서 사용 가능함 custormazing 해서 사용해야 한다고함
@@ -11,3 +11,5 @@
     - Configuration 클래스를 이용한 사용자 인증 처리
         console에서의 password가 아닌 관리자가 지정한 username과 password 사용 가능 나중에 DB랑 연결해서
         로그인기능으로 사용하는 듯 함. 권한부여도 가능한 듯 User, Admin을 구분 할 수 있다고 들었음.
+
+-- 2020.11.29 --
