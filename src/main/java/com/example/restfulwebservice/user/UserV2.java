@@ -14,4 +14,5 @@ public class UserV2 extends User {
 
     private String grade;
 
+
 }

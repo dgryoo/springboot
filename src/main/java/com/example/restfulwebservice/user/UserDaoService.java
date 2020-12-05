@@ -17,9 +17,9 @@ public class UserDaoService {
 
     // Database라고 가정
     static {
-        users.add(new User(1, "Ryoo", new Date(), "pass1", "701010-1111111"));
-        users.add(new User(2, "Shin", new Date(), "pass2", "801010-2222222"));
-        users.add(new User(3, "Lim", new Date(), "pass3", "901010-2222222"));
+        users.add(new User(1, new Date(), "Ryoo", "pass1", "701010-1111111"));
+        users.add(new User(2, new Date(), "Shin", "pass2", "801010-2222222"));
+        users.add(new User(3, new Date(), "Lim", "pass3", "901010-2222222"));
 
     }
 
@@ -63,7 +63,7 @@ public class UserDaoService {
 
     public User updateById(User user, int id) {
         User updateUser = findOne(id);
-        if(updateUser != null ) {
+        if (updateUser != null) {
             updateUser.setName(user.getName());
             return updateUser;
         }
